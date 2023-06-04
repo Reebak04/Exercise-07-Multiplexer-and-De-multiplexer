@@ -47,42 +47,64 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+1.Create a project with required entities.
 
+2.Create a module along with respective file name for both Multiplexer and De-multiplexer.
 
+3.Run the module and get the respective RTL outputs.
 
+4.Create university program(VWF) for getting timing diagram.
+
+5.Give the respective inputs for timing diagram and obtain the results.
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Tejusve Kabeer.F
+RegisterNumber: 212222100054
 */
-
-
-
-
-
-
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
+### MULTIPLEXER
+```
+module multi (s0,s1,a0,a1,a2,a3,y);
+input s0,s1,a0,a1,a2,a3;
+output y;
+wire a,b,c,d,s0bar,s1bar;
+not (s0bar,s0);
+not (s1bar,s1);
+and (a,s0,s1,a3);
+and (b,s0bar,s1,a2);
+and (c,s0,s1bar,a1);
+and (d,s0bar,s1bar,a0);
+or (y,a,b,c,d);
+endmodule
+```
+### DEMULTIPLEXER
+```
+module demul(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire sbar,s1bar;
+nor(sbar,s0);
+nor(s1bar,s1);
+and(y0,i,sbar,s1);
+and(y1,i,sbar,s1bar);
+and(y2,i,s0,s1bar);
+and(y3,i,s0,s1);
+endmodule
+```
+### RTL LOGIC 
+### MULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/d91893dc-c19a-4a88-9cf5-4c53b447f3ac)
+### DEMULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/1909e914-a64f-49f3-87b8-c266110391c5)
+### TIMING DIGRAMS 
+### MULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/789b5221-4a55-47c7-bf93-fc526df50775)
+### DEMULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/d094d5ca-e4e9-42c8-a822-0db470aee55a)
 ### TRUTH TABLE 
-
-
-
-
-
-
+### MULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/79ef20f8-81fc-40e9-98c3-09173cd8abf9)
+### DEMULTIPLEXER
+![image](https://github.com/Reebak04/Exercise-07-Multiplexer-and-De-multiplexer/assets/118364993/88a44799-9b90-4e81-a20d-cd6754be177c)
 ### RESULTS 
+Thus the program to design multiplexer and de-multiplexer is successfully completed.
